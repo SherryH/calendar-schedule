@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: #2fadc8;
+  background-color: var(--primary);
   color: white;
   width: 100%;
   height: 30%;
@@ -15,8 +15,8 @@
 }
 
 .datepickerRow {
-  background-color: #177d91;
-  padding: 0.5em;
+  background-color: var(--secondary);
+  padding: 0.5em 1em;
   display: flex;
   justify-content: space-between;
 }
@@ -42,7 +42,7 @@
 }
 
 .dateElement.selected {
-  background-color: #177d91;
+  background-color: var(--secondary);
   border-radius: 50%;
 }
 

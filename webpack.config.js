@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        exclude: path.resolve(__dirname, './node_modules'),
+        exclude: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname)],
         use: [
           { loader: 'style-loader' },
           {
@@ -45,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        include: path.resolve(__dirname, './node_modules'),
+        include: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname)],
         use: ['style-loader', 'css-loader']
       }
     ]
