@@ -7,6 +7,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
+  devtool: 'cheap-module-eval-source-map',
   entry: {
     index: [path.resolve(__dirname, './src/index.js')]
   },
@@ -30,7 +31,7 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        exclude: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname)],
+        exclude: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname, 'common')],
         use: [
           { loader: 'style-loader' },
           {
@@ -45,7 +46,7 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        include: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname)],
+        include: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname, 'common')],
         use: ['style-loader', 'css-loader']
       }
     ]
