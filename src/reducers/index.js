@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const defaultDaySlot = {
   selectedDay: '2018-05-11',
-  selectedPeriod: 'Morning'
+  selectedPeriod: 'Afternoon'
 };
 const selectedDayPeriod = (state = defaultDaySlot, action) => {
   switch (action.type) {
