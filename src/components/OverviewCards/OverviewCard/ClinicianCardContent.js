@@ -20,23 +20,32 @@ const styles = {
 
 const ClinicianCardContent = (props) => {
   const {
+    slots,
     classes: { root, contentRoot, label }
   } = props;
+  const availableSlots = Object.values(slots);
+  if (availableSlots.length === 0) {
+    return (
+      <CardContent className={contentRoot}>
+        <Chip label="No appointment available for this date" classes={{ root, label }} />
+      </CardContent>
+    );
+  }
   return (
-    <CardContent className={contentRoot}>
-      <Chip label="No appointment available for this date" classes={{ root, label }} />
-    </CardContent>
+    <CardContent className={contentRoot}>{availableSlots.map(availableSlot => <Chip label={availableSlot} classes={{ root, label }} />)}</CardContent>
   );
 };
 
 ClinicianCardContent.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string
-  })
+  }),
+  slots: PropTypes.shape({})
 };
 
 ClinicianCardContent.defaultProps = {
-  classes: { root: {} }
+  classes: { root: {} },
+  slots: {}
 };
 
 export default withStyles(styles)(ClinicianCardContent);

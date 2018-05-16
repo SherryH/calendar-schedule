@@ -11,20 +11,16 @@ const styles = {
 };
 
 const ClinicianAvatar = (props) => {
-  const { classes } = props;
-  return (
-    <Avatar
-      alt="Adelle Charles"
-      classes={{ root: classes.root }}
-      src="http://vensachallenge2018.azurewebsites.net/api/Picture/e538c28d-52df-0654-800f-6145909aca28"
-    />
-  );
+  const { classes, avatarUrl, title } = props;
+  return <Avatar alt={title} classes={{ root: classes.root }} src={`http://vensachallenge2018.azurewebsites.net/${avatarUrl}`} />;
 };
 
 ClinicianAvatar.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string
-  })
+  }),
+  avatarUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 ClinicianAvatar.defaultProps = {

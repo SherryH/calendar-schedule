@@ -25,7 +25,7 @@ App.propTypes = {
   }).isRequired,
   providerOverview: PropTypes.arrayOf(PropTypes.shape({
     Id: PropTypes.string,
-    title: PropTypes.string,
+    Title: PropTypes.string,
     Name: PropTypes.string,
     AvailableSlots: PropTypes.shape({}),
     PictureURL: PropTypes.string

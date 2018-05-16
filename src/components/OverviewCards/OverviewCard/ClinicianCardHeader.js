@@ -19,9 +19,19 @@ const styles = {
 
 const ClinicianCardHeader = (props) => {
   const {
+    title: providerTitle,
+    subheader: providerSubheader,
+    avatarUrl,
     classes: { root, title, subheader }
   } = props;
-  return <CardHeader classes={{ root, title, subheader }} avatar={<ClinicianAvatar />} title="Dr. John Smith" subheader="General Practitioner" />;
+  return (
+    <CardHeader
+      classes={{ root, title, subheader }}
+      avatar={<ClinicianAvatar avatarUrl={avatarUrl} title={providerTitle} />}
+      title={providerTitle}
+      subheader={providerSubheader}
+    />
+  );
 };
 
 ClinicianCardHeader.propTypes = {
@@ -29,7 +39,10 @@ ClinicianCardHeader.propTypes = {
     root: PropTypes.string,
     title: PropTypes.string,
     subheader: PropTypes.string
-  })
+  }),
+  title: PropTypes.string.isRequired,
+  subheader: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string.isRequired
 };
 
 ClinicianCardHeader.defaultProps = {
