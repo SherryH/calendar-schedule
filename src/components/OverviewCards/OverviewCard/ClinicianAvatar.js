@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
+import { PATH_HOST } from '../../../common/constants';
 
 const styles = {
   root: {
@@ -12,7 +13,7 @@ const styles = {
 
 const ClinicianAvatar = (props) => {
   const { classes, avatarUrl, title } = props;
-  return <Avatar alt={title} classes={{ root: classes.root }} src={`http://vensachallenge2018.azurewebsites.net/${avatarUrl}`} />;
+  return <Avatar alt={title} classes={{ root: classes.root }} src={`${PATH_HOST}/${avatarUrl}`} />;
 };
 
 ClinicianAvatar.propTypes = {

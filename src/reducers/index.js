@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import dateFns from 'date-fns';
 import providerOverview, * as providerSelectors from './providerOverview';
-import { LOAD_PROVIDERS } from '../common/constants';
+import { LOAD_PROVIDERS, SELECT_PERIOD } from '../common/constants';
 
 const defaultDaySlot = {
   selectedDay: dateFns.format(new Date(), 'YYYY-MM-DD'),
@@ -10,7 +10,12 @@ const defaultDaySlot = {
 const selectedDayPeriod = (state = defaultDaySlot, action) => {
   switch (action.type) {
     case LOAD_PROVIDERS: {
-      return { selectedDay: action.payload.selectedDay, selectedPeriod: 'Morning' };
+      const { selectedDay } = action.payload;
+      return { ...state, selectedDay };
+    }
+    case SELECT_PERIOD: {
+      const { selectedPeriod } = action.payload;
+      return { ...state, selectedPeriod };
     }
     default:
       return state;

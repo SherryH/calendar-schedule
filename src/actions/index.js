@@ -1,7 +1,6 @@
-import { LOAD_PROVIDERS, PATH_HOST } from '../common/constants';
+import { LOAD_PROVIDERS, PATH_HOST, SELECT_PERIOD } from '../common/constants';
 
 export const loadProvidersAsync = selectedDay => (dispatch) => {
-  console.log('pathchost', PATH_HOST);
   fetch(`${PATH_HOST}/api/Schedule/${selectedDay}`)
     .then(res => res.json())
     .then((providers) => {
@@ -15,4 +14,7 @@ export const loadProvidersAsync = selectedDay => (dispatch) => {
     });
 };
 
-export const dummy = () => {};
+export const getSlotsByPeriod = period => ({
+  type: SELECT_PERIOD,
+  payload: { selectedPeriod: period }
+});
