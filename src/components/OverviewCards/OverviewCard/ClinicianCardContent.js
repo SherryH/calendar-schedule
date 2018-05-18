@@ -9,7 +9,9 @@ const styles = {
     color: '#979797',
     backgroundColor: '#F7F7F7',
     borderRadius: 5,
-    flex: 1
+    flex: 1,
+    marginRight: '0.2em',
+    marginBottom: '0.2em'
   },
   contentRoot: {
     display: 'flex',
