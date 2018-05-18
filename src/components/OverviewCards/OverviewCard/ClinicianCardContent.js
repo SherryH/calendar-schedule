@@ -9,12 +9,13 @@ const styles = {
     color: '#979797',
     backgroundColor: '#F7F7F7',
     borderRadius: 5,
-    width: '100%'
+    flex: 1
   },
   contentRoot: {
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: 0
+    paddingTop: 0,
+    flexWrap: 'wrap'
   }
 };
 
@@ -23,24 +24,22 @@ const ClinicianCardContent = (props) => {
     slots,
     classes: { root, contentRoot, label }
   } = props;
-  const availableSlots = Object.values(slots);
-  if (availableSlots.length === 0) {
+
+  if (slots.length === 0) {
     return (
       <CardContent className={contentRoot}>
         <Chip label="No appointment available for this date" classes={{ root, label }} />
       </CardContent>
     );
   }
-  return (
-    <CardContent className={contentRoot}>{availableSlots.map(availableSlot => <Chip label={availableSlot} classes={{ root, label }} />)}</CardContent>
-  );
+  return <CardContent className={contentRoot}>{slots.map(slot => <Chip key={slot} label={slot} classes={{ root, label }} />)}</CardContent>;
 };
 
 ClinicianCardContent.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string
   }),
-  slots: PropTypes.shape({})
+  slots: PropTypes.arrayOf(PropTypes.string)
 };
 
 ClinicianCardContent.defaultProps = {

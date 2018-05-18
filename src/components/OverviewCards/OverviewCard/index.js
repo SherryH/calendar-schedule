@@ -16,7 +16,7 @@ OverviewCard.propTypes = {
     Id: PropTypes.string,
     Title: PropTypes.string,
     Name: PropTypes.string,
-    AvailableSlots: PropTypes.shape({}),
+    AvailableSlots: PropTypes.arrayOf(PropTypes.string),
     PictureURL: PropTypes.string
   }).isRequired
 };

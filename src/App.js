@@ -6,6 +6,7 @@ import styles from './App.css';
 import Header from './components/Header';
 import OverviewCards from './components/OverviewCards';
 import { loadProvidersAsync } from './actions';
+import { getProviders } from './reducers';
 import './common/globalStyles.css';
 
 class App extends React.Component {
@@ -25,18 +26,6 @@ class App extends React.Component {
   }
 }
 
-// const App = (props) => {
-//   const { selectedDayPeriod, providerOverview } = props;
-//   return (
-//     <div className={styles.wrapper}>
-//       <div className={styles.container}>
-//         <Header selectedDayPeriod={selectedDayPeriod} />
-//         <OverviewCards providerOverview={providerOverview} />
-//       </div>
-//     </div>
-//   );
-// };
-
 App.propTypes = {
   selectedDayPeriod: PropTypes.shape({
     selectedDay: PropTypes.string,
@@ -46,18 +35,26 @@ App.propTypes = {
     Id: PropTypes.string,
     Title: PropTypes.string,
     Name: PropTypes.string,
-    AvailableSlots: PropTypes.shape({}),
+    AvailableSlots: PropTypes.arrayOf(PropTypes.string),
     PictureURL: PropTypes.string
   })).isRequired,
   loadProvidersAsync: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
-  const { selectedDayPeriod, providerOverview } = state;
+  const { selectedDayPeriod } = state;
+  const providerOverview = getProviders(state);
   return {
     selectedDayPeriod,
     providerOverview
   };
 };
+
+// getProviders(state);
+// const { selectedDayPeriod, providerOverview } = state;
+// return {
+//   selectedDayPeriod,
+//   providerOverview
+// };
 
 export default connect(mapStateToProps, { loadProvidersAsync })(App);

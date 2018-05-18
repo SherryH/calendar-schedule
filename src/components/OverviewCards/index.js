@@ -4,6 +4,7 @@ import OverviewCard from './OverviewCard';
 
 const OverviewCards = (props) => {
   const { providerOverview: providers } = props;
+  console.log('providers', providers);
   return providers.map(provider => <OverviewCard provider={provider} key={provider.Id} />);
 };
 
@@ -12,7 +13,7 @@ OverviewCards.propTypes = {
     Id: PropTypes.string,
     Title: PropTypes.string,
     Name: PropTypes.string,
-    AvailableSlots: PropTypes.shape({}),
+    AvailableSlots: PropTypes.arrayOf(PropTypes.string),
     PictureURL: PropTypes.string
   })).isRequired
 };
