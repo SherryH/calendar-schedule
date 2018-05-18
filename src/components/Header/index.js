@@ -4,7 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faCalendar from '@fortawesome/fontawesome-free-regular/faCalendar';
 import dateFns from 'date-fns';
 import HeaderDates from './HeaderDates';
-import HeaderPeriod from './HeaderPeriod';
+import HeaderPeriodContainer from './HeaderPeriodContainer';
 import styles from './Header.css';
 
 const Header = (props) => {
@@ -18,7 +18,7 @@ const Header = (props) => {
         {dateFns.format(new Date(selectedDay), 'MMMM')} <FontAwesomeIcon icon={faCalendar} />
       </div>
       <HeaderDates selectedDay={selectedDay} />
-      <HeaderPeriod selectedPeriod={selectedPeriod} />
+      <HeaderPeriodContainer selectedPeriod={selectedPeriod} />
     </header>
   );
 };

@@ -50,11 +50,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-// getProviders(state);
-// const { selectedDayPeriod, providerOverview } = state;
-// return {
-//   selectedDayPeriod,
-//   providerOverview
-// };
-
 export default connect(mapStateToProps, { loadProvidersAsync })(App);
